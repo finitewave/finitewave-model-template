@@ -32,6 +32,7 @@ python -m test
 ├── LICENSE                          # MIT
 ├── pyproject.toml                   # placeholders to replace
 └── README.md                        # this file
+```
 
 ## Variables
 Model state variables: description, units and ranges (optional)
