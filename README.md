@@ -1,21 +1,21 @@
-# Finitewave model template (replace with the model name)
+## Finitewave model template (replace with the model name)
 
 Add model description here and fill the sections below.
 
-## Reference
+### Reference
 Paper, Authors, DOI.
 
-## How to use (quickstart)
+### How to use (quickstart)
 ```bash
 python -m example/model_example
 ```
 
-## How to test
+### How to test
 ```bash
 python -m test
 ```
 
-## Repository structure
+### Repository structure
 ```text
 .
 ├── model_template/                  # equations package (ops.py)
@@ -34,15 +34,15 @@ python -m test
 └── README.md                        # this file
 ```
 
-## Variables
+### Variables
 Model state variables: description, units and ranges (optional)
 - `u` — ...
 
-## Parameters
+### Parameters
 Parameters and their defualt values
 - `par` - ...
 
-## Model Contributor TODO (template repository only)
+### Model Contributor TODO (template repository only)
 
 In pyproject.toml, replace "model_template" with the actual model id. 
 It must match the name of the directory where ops.py is located.
