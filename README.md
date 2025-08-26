@@ -20,18 +20,26 @@ model_template/           # equations package (ops.py)
   ├─ __init__.py
   └─ ops.py               # fill with the model equations (pure functions)
 
+
 implementation/           # 0D model implementation
   ├─ __init__.py
   └─ model_0d.py
 
+
 example/
   └─ model_example.py     # minimal script to run a short trace
+
 
 tests/
   └─ test.py              # smoke test; extend with reproducibility checks
 
+
 LICENSE (MIT)
+
+
 pyproject.toml            # with placeholders to replace
+
+
 README.md                 # this file
 
 ## Variables
