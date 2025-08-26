@@ -11,9 +11,6 @@ description = Model name — readable cardiac model."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [
-  { name = "Timur Nezlobinsky", email = "nezlobinsky@gmail.com" }
-]
 keywords = ["cardiac", "electrophysiology", "finitewave", "model"]
 classifiers = [
   "Programming Language :: Python :: 3",
