@@ -1,3 +1,24 @@
+"""
+ops.py — mathematical core (“ops”) for a Finitewave model.
+
+Contract (TL;DR):
+- This module is the single source of truth for the model equations.
+- Provide pure Python functions with scalar inputs/outputs (no NumPy arrays, no classes, no globals).
+- Do NOT add numba/jax/torch here — the Finitewave runtime will wrap these functions for you.
+- Stimulus and time integration are handled outside of the model. Here you only return time derivatives.
+- At minimum implement:
+    * get_variables() -> dict[str, float]
+    * get_parameters() -> dict[str, float]
+    * calc_* functions that return d(state)/dt (one per state variable).
+      For simple 2D phenomenological models you may keep `calc_rhs` for du/dt and add `calc_dv` for dv/dt.
+"""
+
+__all__ = (
+    "get_variables",
+    "get_parameters",
+    "calc_rhs",  # add other calc_* functions as needed
+    # e.g. "calc_dv",
+)
 
 
 def get_variables() -> dict[str, float]:
