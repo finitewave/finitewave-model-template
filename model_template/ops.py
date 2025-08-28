@@ -10,7 +10,6 @@ Contract (TL;DR):
     * get_variables() -> dict[str, float]
     * get_parameters() -> dict[str, float]
     * calc_* functions that return d(state)/dt (one per state variable).
-      For simple 2D phenomenological models you may keep `calc_rhs` for du/dt and add `calc_dv` for dv/dt.
 """
 
 __all__ = (
