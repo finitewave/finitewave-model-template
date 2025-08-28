@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 from implementation import Model0D, Stimulation
 
 
-stimulation = Stimulation(t_start=0.1, t_end=0.3, duration=0.2, amplitude=1.0)
+stimulations = [Stimulation(t_start=0.1, t_end=0.3, duration=0.2, amplitude=1.0)]
 
-model = Model0D(dt=0.01, stimulation=stimulation)
+model = Model0D(dt=0.01, stimulations=stimulations)
 model.run(t_max=1.0)
 
 time = np.arange(0, 1.0, model.dt)
