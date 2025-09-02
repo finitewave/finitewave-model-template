@@ -19,8 +19,6 @@ class Stimulation:
     ----------
     t_start : float
         Start time (ms) of the first stimulus window.
-    t_end : float
-        End time (ms) of the last stimulus window. Outside this, stimulus is 0.
     duration : float
         Duration (ms) of a single pulse.
     amplitude : float
@@ -28,19 +26,18 @@ class Stimulation:
 
     Method
     ------
-    stim(t_ms: float) -> float
-        Returns the instantaneous stimulus value at time t_ms.
+    stim(t: float) -> float
+        Returns the instantaneous stimulus value at time t.
 
     """
 
-    def __init__(self, t_start: float, t_end: float, duration: float, amplitude: float):
+    def __init__(self, t_start: float, duration: float, amplitude: float):
         self.t_start = t_start
-        self.t_end = t_end
         self.duration = duration
         self.amplitude = amplitude
 
-    def stim(self):
-        raise NotImplementedError("Stimulation.stim: implement your stimulus time-course.")
+    def stim(self, t: float) -> float:
+        return self.amplitude if self.t_start <= t < self.t_start + self.duration else 0.0
 
 
 class Model0D:
@@ -50,11 +47,32 @@ class Model0D:
     def __init__(self, dt: float, stimulations: list[Stimulation]):
         self.dt = dt
         self.stimulations = stimulations
-        self.variables = None
-        self.parameters = None
+        self.variables = ops.get_variables()
+        self.parameters = ops.get_parameters()
+        self.history = {s: [] for s in self.variables}
 
-    def step(self):
+    def step(self, i: int):
+        """
+        Perform a single time step update.
+
+        Parameters
+        ----------
+        i : int
+            Current time step index.
+        """
         raise NotImplementedError("Model0D.step: implement your integration scheme (e.g., explicit Euler).")
 
     def run(self, t_max: float):
-        raise NotImplementedError("Model0D.run: implement a loop around step().")
+        """
+        Run the simulation up to time t_max.
+        
+        Parameters
+        ----------
+        t_max : float
+            Maximum simulation time.
+        """
+        n_steps = int(t_max/self.dt)
+        for i in range(n_steps):
+            self.step(i)
+            for s in self.variables:
+                self.history[s].append(self.variables[s])
