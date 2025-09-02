@@ -12,7 +12,7 @@ python -m example/model_example
 
 ### How to test
 ```bash
-python -m test
+python -m pytest -q
 ```
 
 ### Repository structure
