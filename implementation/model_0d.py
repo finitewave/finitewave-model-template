@@ -71,7 +71,7 @@ class Model0D:
         t_max : float
             Maximum simulation time.
         """
-        n_steps = int(t_max/self.dt)
+        n_steps = int(round(t_max/self.dt))
         for i in range(n_steps):
             self.step(i)
             for s in self.variables:
