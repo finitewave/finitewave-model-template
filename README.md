@@ -2,6 +2,9 @@
 
 Add model description here and fill the sections below.
 
+This model implementation can be used separately from the Finitewave, allowing for standalone simulations and testing of the model dynamics without the need for the entire framework.
+
+
 ### Reference
 Paper, Authors, DOI.
 
