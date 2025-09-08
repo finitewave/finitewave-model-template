@@ -1,3 +1,10 @@
+"""
+Example script to run a 0D model simulation and plot the results.
+
+This script sets up a simple stimulation protocol, runs the simulation,
+and plots the membrane potential over time.
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 

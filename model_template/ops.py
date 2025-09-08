@@ -1,15 +1,14 @@
 """
-ops.py — mathematical core (“ops”) for a Finitewave model.
+ops.py — mathematical core of the __template__ model.
 
-Contract (TL;DR):
-- This module is the single source of truth for the model equations.
-- Provide pure Python functions with scalar inputs/outputs (no NumPy arrays, no classes, no globals).
-- Do NOT add numba/jax/torch here — the Finitewave runtime will wrap these functions for you.
-- Stimulus and time integration are handled outside of the model. Here you only return time derivatives.
-- At minimum implement:
-    * get_variables() -> dict[str, float]
-    * get_parameters() -> dict[str, float]
-    * calc_* functions that return d(state)/dt (one per state variable).
+This module provides functions to compute the __template__ model equations,
+as well as functions to retrieve default parameters and initial
+values for the state variables.
+
+The __template__ model is a simplified representation of cardiac electrical
+activity, capturing essential features of excitation and recovery in cardiac tissue.
+
+References:
 """
 
 __all__ = (
@@ -40,7 +39,7 @@ def get_parameters() -> dict[str, float]:
 
 def calc_rhs() -> float:
     """
-    Computes the right-hand side of the model.
+    Computes the right-hand side of the __template__ model.
     """
     raise NotImplementedError("The calc_rhs method must be implemented in a subclass.")
 

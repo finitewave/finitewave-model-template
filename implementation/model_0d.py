@@ -1,11 +1,8 @@
 """
-implementation/model_0d.py — 0D (single-cell) wrapper for running a model outside the framework.
+This module provides a simple interface to run the __template__ model in a 0D setting,
+i.e., without spatial dimensions. It includes class for defining stimulation protocols
+and a class for the 0D model itself.
 
-Purpose
--------
-- Provide a small, readable class where the author can plug in an integrator and stimulus.
-- Use pure Python only (no numba/jax/torch here).
-- Time derivatives (RHS) come from `model_template.ops` (or your final package with ops.py).
 """
 
 from model_template import ops
@@ -13,7 +10,7 @@ from model_template import ops
 
 class Stimulation:
     """
-    Stimulus description for a 0D simulation.
+    Stimulus protocol for the 0D model.
 
     Parameters
     ----------
@@ -43,6 +40,30 @@ class Stimulation:
 class Model0D:
     """
     Model OD implementation.
+
+    Parameters
+    ----------
+
+    dt : float
+        Time step size (ms).
+    stimulations : list[Stimulation]
+        List of stimulation protocols to apply during the simulation.
+
+    Attributes
+    ----------
+    variables : dict[str, float]
+        Current state variables of the model.
+    parameters : dict[str, float]
+        Model parameters.
+    history : dict[str, list[float]]
+        Time history of state variables for post-processing.
+    
+    Methods
+    -------
+    step(i: int)
+        Perform a single time step update.
+    run(t_max: float)
+        Run the simulation up to time t_max.
     """
     def __init__(self, dt: float, stimulations: list[Stimulation]):
         self.dt = dt
