@@ -31,7 +31,7 @@ Paper, Authors, DOI.
 
 ### How to use (quickstart)
 ```bash
-python -m example/model_example
+python -m example.model_example
 ```
 
 ### How to test
