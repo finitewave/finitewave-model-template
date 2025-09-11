@@ -1,12 +1,9 @@
 """
-ops.py — mathematical core of the __template__ model.
+ops.py — mathematical core of the model.
 
-This module provides functions to compute the __template__ model equations,
+This module provides functions to compute the model equations,
 as well as functions to retrieve default parameters and initial
 values for the state variables.
-
-The __template__ model is a simplified representation of cardiac electrical
-activity, capturing essential features of excitation and recovery in cardiac tissue.
 
 References:
 """
@@ -39,7 +36,7 @@ def get_parameters() -> dict[str, float]:
 
 def calc_rhs() -> float:
     """
-    Computes the right-hand side of the __template__ model.
+    Computes the right-hand side of the model.
     """
     raise NotImplementedError("The calc_rhs method must be implemented in a subclass.")
 

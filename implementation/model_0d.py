@@ -1,5 +1,5 @@
 """
-This module provides a simple interface to run the __template__ model in a 0D setting,
+This module provides a simple interface to run the model in a 0D setting,
 i.e., without spatial dimensions. It includes class for defining stimulation protocols
 and a class for the 0D model itself.
 
