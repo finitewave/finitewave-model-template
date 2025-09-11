@@ -44,17 +44,17 @@ python -m pytest -q
 .
 ├── model_template/                  # equations package (ops.py)
 │   ├── __init__.py
-│   └── ops.py                       # fill with the model equations (pure functions)
+│   └── ops.py                       # model equations (pure functions)
 ├── implementation/                  # 0D model implementation
 │   ├── __init__.py
 │   └── model_0d.py
 ├── example/
 │   └── model_example.py             # minimal script to run a short trace
 ├── tests/
-│   └── test.py                      # smoke test; extend with reproducibility checks
+│   └── test.py                      # smoke test; reproducibility checks
 ├── .gitignore
 ├── LICENSE                          # MIT
-├── pyproject.toml                   # placeholders to replace
+├── pyproject.toml                   # configuration file
 └── README.md                        # this file
 ```
 
